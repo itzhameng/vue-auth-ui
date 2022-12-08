@@ -40,6 +40,7 @@
             <el-table-column prop="createTime" label="创建时间" width="160" />
             <el-table-column label="操作" width="200" align="center">
                 <template slot-scope="scope">
+                    <el-button type="warning" icon="el-icon-baseball" size="mini" @click="showAssignAuth(scope.row)" title="分配权限" />
                     <el-button type="primary" icon="el-icon-edit" size="mini" @click="edit(scope.row.id)" title="修改" />
                     <el-button type="danger" icon="el-icon-delete" size="mini" @click="removeDataById(scope.row.id)"
                         title="删除" />
@@ -213,6 +214,11 @@ export default {
                     this.$message.info('取消删除')
                 }
             })
+        },
+
+        //分配权限
+        showAssignAuth(row) {
+            this.$router.push('/system/assignAuth?id=' + row.id + '&roleName=' + row.roleName);
         }
 
     }
