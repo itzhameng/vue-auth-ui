@@ -218,6 +218,7 @@ export default {
 
         //分配权限
         showAssignAuth(row) {
+            //this.$router.push('/system/assignAuth?id=' + row.id + '&roleName=' + row.roleName);
             this.$router.push('/assignAuth?id=' + row.id + '&roleName=' + row.roleName);
         }
 
