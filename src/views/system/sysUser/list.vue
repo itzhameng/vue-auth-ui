@@ -27,7 +27,7 @@
 
         <!-- 工具条 -->
         <div class="tools-div">
-            <el-button type="success" icon="el-icon-plus" size="mini" @click="add">添 加</el-button>
+            <el-button type="success" icon="el-icon-plus" size="mini" @click="add" :disabled="$hasBP('bnt.sysUser.add')  === false">添 加</el-button>
         </div>
 
         <!-- 列表 -->
@@ -52,10 +52,10 @@
 
             <el-table-column label="操作" align="center" fixed="right">
                 <template slot-scope="scope">
-                    <el-button type="warning" icon="el-icon-baseball" size="mini" @click="showAssignRole(scope.row)" title="分配角色" />
-                    <el-button type="primary" icon="el-icon-edit" size="mini" @click="edit(scope.row.id)" title="修改" />
+                    <el-button type="warning" icon="el-icon-baseball" size="mini" @click="showAssignRole(scope.row)" title="分配角色" :disabled="$hasBP('bnt.sysUser.assignRole')  === false" />
+                    <el-button type="primary" icon="el-icon-edit" size="mini" @click="edit(scope.row.id)" title="修改" :disabled="$hasBP('bnt.sysUser.update')  === false" />
                     <el-button type="danger" icon="el-icon-delete" size="mini" @click="removeDataById(scope.row.id)"
-                        title="删除" />
+                        title="删除" :disabled="$hasBP('bnt.sysUser.remove')  === false" />
                 </template>
             </el-table-column>
         </el-table>
